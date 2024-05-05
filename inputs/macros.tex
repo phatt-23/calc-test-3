@@ -16,22 +16,21 @@
     \begin{tcolorbox}[
         title=\textbf{#1},
         colback=gre!9!white,
-        colframe=gre!50!black,
-        colbacklower=gre!75!black,
+        colframe=gre!40!black,
+        colbacklower=gre!40!black,
         skin=bicolor,
         halign lower=flush right,
         collower=white,
-        experimental split,
 		attach boxed title to top left={
 			xshift=2mm,
 			yshift=-2mm
 		},
         boxed title style={
             size=small,
-            colback=gre!70!black,
+            colback=gre!57!black,
         },
         drop shadow=black!50!white,%
-		width=5in,
+		width=0.7\textwidth,
         bottom=-3mm,
     ]
 	    #2
@@ -41,7 +40,7 @@
 
 }
 
-\newcommand*\defi[2]{
+\newcommand*\dfn[2]{
     \begin{center}
         \begin{tcolorbox}[
             title=\textbf{#1},
@@ -49,13 +48,13 @@
             % valign=center,
             nobeforeafter,
             colback=myred!5!white,
-            colframe=myred!75!black,
-            colbacklower=myred!90!white,
+            colfafparticlerame=myred!75!black,
+            colbacklower=myred!75!black,
+	        colframe=myred!75!black,
             skin=bicolor,
             halign lower=flush right,
             bottom=-3mm,
             collower=white,
-            experimental split,
             % breakable,
     		attach boxed title to top left={
     			xshift=2mm,
@@ -63,9 +62,9 @@
     		},
             boxed title style={
                 size=small,
-                colback=myred!90!white,
+                colback=myred!90!black,
             },
-			width=5in,
+			width=0.7\textwidth,
             drop shadow=black!50!white,%
         ] 
             #2 
@@ -78,8 +77,8 @@
 	\begin{tcolorbox}[
 		enhanced,
         colback=myb!5!white,
-        colframe=myb!75!black,
-        colbacklower=myb!90!white,
+        colframe=myb!50!black,
+        colbacklower=myb!50!black,
 		title=\textbf{#1},
 		attach boxed title to bottom left={
 			xshift=2mm,
@@ -87,12 +86,14 @@
 		},
 		boxed title style={
 			size=small,
-			colback=myb
+			colback=myb!75!black
 		},
-		width=3in,
+		width=0.5\textwidth,
 	    drop shadow=black!50!white,%
+        bottom=-3mm,
 	]
-    #2
+	    #2
+        \tcblower
 	\end{tcolorbox}
 }
 

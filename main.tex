@@ -1,10 +1,12 @@
-\documentclass[10pt]{article}
+\documentclass[
+	10pt, draft
+]{article}
 
 \input{inputs/preamble}
 \input{inputs/macros}
 
 
-\title{\Huge{\textbf{MA1 Integrály}} \\ \huge{}}
+\title{\Huge{\textbf{MA1}} \\ \huge{Integrální počet}}
 \author{Phat Tran}
 \date{\today}
 
@@ -16,19 +18,19 @@
 	\pagestyle{mycustomstyle} 
 
 	\section{Integrály}
-		\begin{align*}
-			\int f(x) \diff{x} &\, \ldots \, \text{neurčitý integrál} \\
-			\int f(x) \diff{x} = F(x) &\, \ldots \, \text{primitivní funkce k funkci $f(x)$} \\
-			F'(x) = f(x) &\, \ldots \, \text{derivace primitivní funkce, $F(x)$, je funkce $f(x)$} \\
-		\end{align*}
+		\begin{itemize}
+			\item $\int f(x) \diff{x} \, \ldots \, ${neurčitý integrál} 
+			\item $\int f(x) \diff{x} = F(x) \, \ldots \, ${primitivní funkce k funkci $f(x)$} 
+			\item $F'(x) = f(x) \, \ldots \, ${derivace primitivní funkce, $F(x)$, je funkce $f(x)$} 
+        \end{itemize}
 
-		\defi{Pravidlo sumy}{$$
+		\dfn{Pravidlo sumy}{$$
 			\int \Big( f(x) \pm g(x) \Big) \diff{x} = \int f(x) \diff{x} \pm \int g(x) \diff{x}
 			$$}
 
-		\defi{Pravidlo konstanty}{$$\int k f(x) \diff{x} = k \int f(x) \diff{x}$$}
+		\dfn{Pravidlo konstanty}{$$\int k f(x) \diff{x} = k \int f(x) \diff{x}$$}
 
-		\defi{Metoda Per Partes}{
+		\dfn{Metoda Per Partes}{
 			\begin{align*}
             	\left( f \cdot g \right)' &= f'g + fg' \\
             	\int \left( f \cdot g \right)' &= \int f'g + \int fg' \\
@@ -39,7 +41,7 @@
         	$$ \textbf{II.} \, \int fg' = fg - \int f'g $$ 
 		}
 
-		\defi{Subtituční metoda}{
+		\dfn{Subtituční metoda}{
 			\begin{flushleft}
 				Pokud pro funkce $f$ a $g$ platí, že
 				\begin{enumerate}
@@ -251,5 +253,210 @@
 				&= -\ln{|t|} \\
 				&= -\ln{|\cos{x}|} + C
 			}
-	
+
+		% Další příklady sebrány z https://www.priklady.eu/cs/matematika/neurcity-integral/integral-substitucni-metoda.alej %
+		
+		\qs{Vypočítejte neurčitý integrál}{$$ \int \left( 5x - 1 \right)^3 \diff{x} $$}	
+			\note{Subtituce}{
+				$$ t = 5x - 1 $$
+				$$ \diff{t} = 5 \diff{x}
+			}
+			\mathblock{
+				&= \frac{1}{5} \int t^3 \diff{x} \\
+				&= \frac{1}{5} \cdot \frac{1}{4}t^4 \\
+				&= \frac{1}{20} t^4 \\
+				&= \frac{1}{20} \left( 5x - 1 \right)^4 + C
+			}
+			
+		\qs{Vypočítejte neurčitý integrál}{$$ \int \frac{5x}{\left(x^2 + 4\right)^3} \diff{x} $$}
+			\note{Substituce}{
+				$$ t = x^2 + 4 $$
+				$$ \diff{t} = 2x \diff{x}$$
+			}
+			\mathblock{
+				&= \frac{1}{2} \int \frac{5x}{t^3} \frac{1}{2x^{1}}\diff{t} \\
+				&= \frac{1}{2} \int \frac{5x}{t^3} x^{-1}\diff{t} \\
+				&= \frac{1}{2} \int \frac{5}{t^3} \diff{t} \\
+				&= \frac{5}{2} \int t^{-3} \diff{t} \\
+				&= \frac{5}{2} \cdot -\frac{1}{2} t^{-2} \\
+				&= -\frac{5}{4} t^{-2} + C
+			}
+
+		\qs{Vypočítejte neurčitý integrál}{$$ \int \sqrt[3]{4x - 7} \diff{x} $$}
+			\note{Substituce}{
+				$$ t = 4x - 7 $$
+				$$ \diff{t} = 4 \diff{x} $$
+			}
+			\mathblock{
+				&= \int \sqrt[3]{t} \cdot 4^{-1} \diff{t} \\
+				&= \frac{1}{4} \int t^{\frac{1}{3}} \diff{t} \\
+				&= \frac{1}{4} \int t^{\frac{1}{3}} \diff{t} \\
+				&= \frac{1}{4} \frac{t^{\frac{4}{3}}}{\frac{4}{3}} \\
+				&= \frac{3}{16} t^{\frac{4}{3}} + C
+			}
+
+		\qs{Vypočítejte neurčitý integrál}{$$ \int e^{5x} \diff{x} $$}
+			\note{Subtituce}{
+				$$ t = 5x $$
+				$$ \diff{t} = 5 \diff{x} $$ 
+			}
+			\mathblock{
+				&= 5^{-1} \int e^{t} \diff{t} \\ 
+				&= 5^{-1} e^{t} \\ 
+				&= 5^{-1} e^{5x} \\ 
+				&= \frac{1}{5} e^{5x} + C 
+			}
+
+		\qs{Vypočítejte neurčitý integrál}{$$ \int e^{1 + \sin{x}} \cos x \diff{x} $$}
+			\note{Substituce}{
+				$$ t = 1 + \sin{x} $$
+				$$ \diff{t} = \cos{x} \diff{x} $$
+			}
+			\mathblock{
+				&= \int e^t \diff{t} \\
+				&= e^t \\
+				&= e^{1 + \sin{x}} + C
+			}
+
+		\qs{Vypočítejte neurčitý integrál}{$$ \int x \cdot e^{x^2} \diff{x} $$}
+			\note{Substituce}{
+				$$ t = x^2 $$
+				$$ \diff{t} = 2x \diff{x} $$
+			}
+			\mathblock{
+				&= \int x (2x)^{-1} \cdot e^t \diff{t} \\
+				&= \frac{1}{2} \int e^t \diff{t} \\
+				&= \frac{1}{2} e^t \\
+				&= \frac{1}{2} e^{x^2} + C
+			}
+
+		\qs{Vypočítejte neurčitý integrál}{$$ \int e^{3 - 2x} \diff{x} $$}
+			\note{Substituce}{
+				$$ t = 3 - 2x $$ $$ \diff{t} = -2 \diff{x} $$
+			}
+			\mathblock{
+				&= -\frac{1}{2} \int e^t \diff{t} \\
+				&= -\frac{1}{2} e^{3-2x} + C
+			}
+
+		\qs{Vypočítejte neurčitý integrál}{$$ \int 3 e^x \sqrt{1 + e^x} \diff{x} $$}
+			\note{Substituce}{
+				$$ t = 1 + e^x $$
+				$$ \diff{t} = e^x \diff{x} $$
+			}
+			\mathblock{
+				&= \int 3(t - 1) \sqrt{t} \diff{t} \\
+				&= 3 \int (t - 1) t^{\frac{1}{2}} \diff{t} \\
+			}
+			\note{Per Partes}{
+				$$ f(x) = t - 1 \,\rightarrow\, f'(x) = 1 $$
+				$$ g'(x) = t^{\frac{1}{2}} \,\rightarrow\, g(x) = \frac{t^{\frac{3}{2}}}{\frac{3}{2}} = \frac{2}{3} t^{\frac{3}{2}} $$
+			}
+			\mathblock{
+				&= (t - 1)\frac{2}{3} t^{\frac{3}{2}} - \int \frac{2}{3} t^{\frac{3}{2}} \diff{t} \\
+				&= (t - 1)\frac{2}{3} t^{\frac{3}{2}} - \frac{2}{3} \cdot \frac{t^{\frac{5}{2}}}{\frac{5}{2}} \\
+				&= (t - 1)\frac{2}{3} t^{\frac{3}{2}} - \frac{4}{15}  t^{\frac{5}{2}}\\
+				&= \frac{4}{15} \left( \frac{5}{2}(t - 1) t^{\frac{3}{2}} - t^{\frac{5}{2}} \right) \\
+				&= \frac{4}{15} \left( \frac{5}{2}\left( t^{\frac{3}{2}} - t^{\frac{3}{2}} \right) - t^{\frac{5}{2}} \right) \\
+				&= \frac{4}{15} \left( \frac{5}{2} t^{\frac{3}{2}} - \frac{5}{2} t^{\frac{3}{2}} - t^{\frac{5}{2}} \right) \\
+				&= \frac{4}{15} \left( \frac{3}{2} t^{\frac{3}{2}} - \frac{5}{2} t^{\frac{3}{2}} \right) \\
+				&= \frac{12}{30} t^{\frac{3}{2}} - \frac{20}{30} t^{\frac{3}{2}} \right) \\
+				&= \frac{2}{6} \left(1 + e^x \right)^{\frac{3}{2}} - \frac{2}{3} \left(1 + e^x \right)^{\frac{3}{2}} \right) \\
+				&= -\frac{2}{6} \left(1 + e^x \right)^{\frac{3}{2}} 
+			}
+
+		\qs{Vypočítejte neurčitý integrál}{$$ \int \frac{e^{\frac{1}{x}}}{x^2} \diff{x} $$}
+			\note{Substituce}{
+				$$ t = x^{-1} $$
+				$$ \diff{t} = -x^{-2} \diff{x} $$
+			}
+			\mathblock{
+				&= - \int t \diff{t} \\
+				&= - \frac{t^2}{2} \\
+				&= - \frac{x^{-2}}{2} \\
+				&= - \frac{1}{2x^2} + C
+			}
+
+		\qs{Vypočítejte neurčitý integrál}{$$ \int \frac{\sqrt{1 + \ln{x}}}{x} \diff{x} $$}
+			\note{Substituce}{
+				$$ t = 1 + \ln{x} $$
+				$$ \diff{t} = x^{-1} \diff{x} $$
+			}
+			\mathblock{
+				 &= \int \sqrt{t} \diff{t} \\
+				 &= \int t^{\frac{1}{2}}\diff{t} \\
+				 &= \frac{2}{3} t^{\frac{3}{2}} + C
+			}
+
+		\qs{Vypočítejte neurčitý integrál}{$$ \int \frac{1}{x\sqrt{\ln{x}}} \diff{x} $$}
+			\note{Substituce}{
+				$$ t = \ln{x} $$
+				$$ \diff{t} = x^{-1}\diff{x} $$
+			}
+			\mathblock{
+				&= \int \frac{1}{x\sqrt{t}} \diff{x} \\
+				&= \int t^{-\frac{1}{2}} \diff{t} \\
+				&= 2 t^{\frac{1}{2}}  \\
+				&= 2 \sqrt{\ln{x}} + C \\
+			}
+
+		\qs{Vypočítejte neurčitý integrál}{$$ \int \frac{\ln^4{x}}{x} \diff{x} $$}
+			\note{Substituce}{
+				$$ t = \ln{x} $$
+				$$ \diff{t} = x^{-1} \diff{x} $$
+			}
+			\mathblock{
+				&= \int \ln^4{t} \diff{t} \\
+				&= \frac{1}{5}\ln^5{t} \\
+				&= \frac{1}{5}\ln^5{\left( \ln{x} \right)} + C \\
+				&= \frac{1}{5}\left(\ln{\left( \ln{x} \right)}\right)^5 + C \\
+				&= \frac{1}{5}\left(\ln \circ \ln\right)^5(x) + C
+			}
+
+		\qs{Vypočítejte neurčitý integrál}{$$ \int \cos{\frac{x}{4}} \diff{x} $$}
+			\note{Substituce}{
+				$$ t = \frac{1}{4}x $$
+				$$ \diff{t} = \frac{1}{4} \diff{x} $$
+			}
+			\mathblock{
+				&= \frac{1}{4} \int \cos{t} \diff{t} \\
+				&= \frac{1}{4} \sin{t} \\
+				&= \frac{1}{4} \sin{\left(\frac{1}{4}x\right)} + C
+			}
+
+		\qs{Vypočítejte neurčitý integrál}{$$ \int \sin{2x} \diff{x} $$}
+			\note{Substituce}{
+				$$ t = 2x $$
+				$$ \diff{t} = 2 \diff{x} $$
+			}
+			\mathblock{
+				&= \frac{1}{2} \int \sin{t} \diff{t} \\
+				&= -\frac{1}{2} \cos{t} \\
+				&= -\frac{1}{2} \cos{2x} + C 
+			}
+
+		\qs{Vypočítejte neurčitý integrál}{$$ \int \cot{(2x + 1)} \diff{x} $$}
+			\note{Substituce}{
+				$$ t = 2x + 1 $$
+				$$ \diff{t} = 2 \diff{x} $$
+			}
+			\mathblock{
+				&= 2 \int \cot{t} \diff{t} \\
+				&= 2 \int \frac{\cos{t}}{\sin{t}} \diff{t} \\
+				&= 2 \int \frac{1}{\sin{t}}\cos{t} \diff{t} \\
+			}
+			Za podmínek, že 
+			\begin{enumerate}[topsep=2pt,itemsep=2pt,partopsep=4pt,parsep=4pt]
+				\item $f(x) = \frac{1}{x}$,
+				\item $g(x) = \sin{x}$ 
+				\item a $F(x) = \ln{|x|}$ je primitivní f-ce k f-ci $f(x)$. 
+			\end{enumerate}
+			Potom $(F \circ g)(x) + C$ je 
+			\mathblock{
+				&= 2 \ln{\left|\sin{t}\right|} + C
+			}
+
+		% \qs{Vypočítejte neurčitý integrál}{$$ \int \diff{x} $$}
+		% \qs{Vypočítejte neurčitý integrál}{$$ \int \diff{x} $$}
+		% \qs{Vypočítejte neurčitý integrál}{$$ \int \diff{x} $$}
 \end{document}
