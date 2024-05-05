@@ -1,0 +1,115 @@
+%%%%%%%%%%%%
+%% Macros %%
+%%%%%%%%%%%%
+
+\input{inputs/preamble.tex}
+
+% Limit = use this in the $math$ mode 
+\newcommand{\Lim}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \lim_{#1}\;$}}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}            % \diff{x} -> dx
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}      % \Diff{3}{y} -> d^{3}y
+\newcommand{\ts}{\textsuperscript}                  % shortcut for superscript in text
+
+%% NEW COMMANDS %%%
+\newcommand*\qs[2]{
+	\begin{center}
+    \begin{tcolorbox}[
+        title=\textbf{#1},
+        colback=gre!9!white,
+        colframe=gre!50!black,
+        colbacklower=gre!75!black,
+        skin=bicolor,
+        halign lower=flush right,
+        collower=white,
+        experimental split,
+		attach boxed title to top left={
+			xshift=2mm,
+			yshift=-2mm
+		},
+        boxed title style={
+            size=small,
+            colback=gre!70!black,
+        },
+        drop shadow=black!50!white,%
+		width=5in,
+        bottom=-3mm,
+    ]
+	    #2
+        \tcblower
+    \end{tcolorbox}
+	\end{center}
+
+}
+
+\newcommand*\defi[2]{
+    \begin{center}
+        \begin{tcolorbox}[
+            title=\textbf{#1},
+            % halign=center,
+            % valign=center,
+            nobeforeafter,
+            colback=myred!5!white,
+            colframe=myred!75!black,
+            colbacklower=myred!90!white,
+            skin=bicolor,
+            halign lower=flush right,
+            bottom=-3mm,
+            collower=white,
+            experimental split,
+            % breakable,
+    		attach boxed title to top left={
+    			xshift=2mm,
+    			yshift=-2mm
+    		},
+            boxed title style={
+                size=small,
+                colback=myred!90!white,
+            },
+			width=5in,
+            drop shadow=black!50!white,%
+        ] 
+            #2 
+            \tcblower
+        \end{tcolorbox}
+    \end{center}
+}
+
+\newcommand*\note[2]{
+	\begin{tcolorbox}[
+		enhanced,
+        colback=myb!5!white,
+        colframe=myb!75!black,
+        colbacklower=myb!90!white,
+		title=\textbf{#1},
+		attach boxed title to bottom left={
+			xshift=2mm,
+			yshift=2mm
+		},
+		boxed title style={
+			size=small,
+			colback=myb
+		},
+		width=3in,
+	    drop shadow=black!50!white,%
+	]
+    #2
+	\end{tcolorbox}
+}
+
+\newcommand*\mathblock[1]{
+	\begin{align}
+		#1
+	\end{align}
+}
+
+\newcommand*{\mathblocks}[1]{
+	\begin{align*}
+		#1
+	\end{align*}
+}
+
+
+\newcommand*{\ntoinf}{n \rightarrow +\infty}
+\newcommand*{\xtoinf}{x \rightarrow +\infty}
+
+
